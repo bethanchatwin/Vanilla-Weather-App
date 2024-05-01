@@ -1,4 +1,4 @@
-function handleSearchSubmit(event) {
+function displayCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
   let cityElement = document.querySelector("#city");
@@ -8,7 +8,7 @@ function handleSearchSubmit(event) {
   handleSearch(searchInput.value);
 }
 let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
+searchFormElement.addEventListener("submit", displayCity);
 
 function displayTemperature(response) {
   let temp = Math.round(response.data.temperature.current);
