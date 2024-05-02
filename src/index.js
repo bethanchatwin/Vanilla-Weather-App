@@ -2,9 +2,11 @@ function displayCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
   let cityElement = document.querySelector("#city");
+
   let str = searchInput.value;
   str = str.charAt(0).toUpperCase() + str.slice(1);
   cityElement.innerHTML = str;
+
   handleSearch(searchInput.value);
 }
 let searchFormElement = document.querySelector("#search-form");
@@ -13,9 +15,11 @@ searchFormElement.addEventListener("submit", displayCity);
 function displayTemperature(response) {
   let temp = Math.round(response.data.temperature.current);
   let tempElement = document.querySelector("#current-temp");
-  let cityElement = document.querySelector("city");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
   cityElement.innerHTML = response.data.city;
   tempElement.innerHTML = `${temp}`;
+  descriptionElement.innerHTML = response.data.condition.description;
 }
 
 function handleSearch(city) {
