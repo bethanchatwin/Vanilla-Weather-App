@@ -17,9 +17,13 @@ function displayTemperature(response) {
   let tempElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   cityElement.innerHTML = response.data.city;
   tempElement.innerHTML = `${temp}`;
   descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
 }
 
 function handleSearch(city) {
