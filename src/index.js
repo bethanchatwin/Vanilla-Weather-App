@@ -12,6 +12,11 @@ function displayCity(event) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", displayCity);
 
+function handleError() {
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = "Sorry, city not known";
+}
+
 function displayTemperature(response) {
   let temp = Math.round(response.data.temperature.current);
   let tempElement = document.querySelector("#current-temp");
@@ -61,3 +66,5 @@ function handleSearch(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
+
+handleSearch("paris");
