@@ -18,6 +18,9 @@ function handleError() {
 }
 
 function displayTemperature(response) {
+  if (response.data.status === "not_found") {
+    return handleError();
+  }
   let temp = Math.round(response.data.temperature.current);
   let tempElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
